@@ -5,17 +5,17 @@
  *   firstNonRepeatedCharacter('ABA'); // => 'B'
  *   firstNonRepeatedCharacter('AACBDB'); // => 'C'
  */
+//first atrocious implementation
 
 var firstNonRepeatedCharacter = function(string) {
   //turn string into an array
   var stringCopy = string.split('');
   var stringCopyCopy = string.split('');
-  var test = 1;
   //make a copy
   for ( var i = 0; i < stringCopy.length; i++ ) {
     var char = stringCopy[i]
     var removed = stringCopyCopy.splice(i, 1);
-    if ( stringCopyCopy.includes(char) === false) {
+    if (! stringCopyCopy.includes(char) ) {
       return string[i]
     }
     stringCopyCopy = string.split('');
@@ -23,7 +23,9 @@ var firstNonRepeatedCharacter = function(string) {
 
 };
 
-console.log( firstNonRepeatedCharacter('AACBDB') ); //C
+
+
+console.log(firstNonRepeatedCharacter('AACBDB') ); //C
 console.log(firstNonRepeatedCharacter('ABA')) //'B'
 console.log(firstNonRepeatedCharacter('')) //''
 
