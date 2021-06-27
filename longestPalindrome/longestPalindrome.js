@@ -5,38 +5,35 @@
 * palindromes in the above string include "dad", "ete", " dad " (including
 * whitespace on each side of dad).
 */
-var compareLetters = (str) => {
-  console.log(str[0] === str[str.length - 1]);
-  return str[0] === str[str.length - 1] ? str : false
-
+var longest = (arr, word = '') => {
+  for (var i = 0; i < arr.length; i++) {
+    if (word.length < arr[i].length) {
+      word = arr[i]
+    }
+  }
+  return word;
 }
-var longestPalindrome = function (string, mover = 1) {
+var longestPalindrome = function (string) { //arrow func, default param
   //something to add/subtract
   //something to  hold longest string
-  let longestStr = ''
-  //for loop
-  for ( let i = 1; i < string.length; i++ ) {
-    let char = string[0]
-    let wordHolder = [];
-    //this i have to do over and over again until  compareLetters returns false
-    console.log(i - mover, i,  i + mover)
-    let tempstr = string.substring(i - mover, i + (mover + 1));
-    console.log(tempstr)
-    if (compareLetters(tempstr) === false) {
-      mover = 1;
+  let longestStr = '';
+  let odd = [], even = [];
+  let compareLetters = (lesser, higher) => { //arrow func
+    while (lesser >= 0 && higher < string.length && string[lesser] === string[higher]) {
+      lesser--;
+      higher++;
     }
-    if (compareLetters(tempstr) === true) {
-      mover++;
-      if (tempstr.length > longestStr.length) {
-        longestStr = tempstr;
-      }
-    }    //helper function
+    return string.slice(lesser+1, higher)
   }
-  //array in for loop
-  //return string
-  return longestStr
+  for (let i = 0; i < string.length; i++) {
+    odd.push( compareLetters(i-1, i+1) )
+    even.push( compareLetters(i, i+1) )
+  }
+  return longest(even, longest(odd) );
 };
-console.log(longestPalindrome("banana")) //ana
+
+console.log(longestPalindrome("banana")) // "anana"
+console.log(longestPalindrome("My dad is a racecar athlete")) // "a racecar a"
 //console.log(longestPalindrome("My dad is a racecar athlete")) // a racecar a
 /*example for thought : banana
 str[0] === b
