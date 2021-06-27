@@ -36,30 +36,39 @@
  */
 
 
-var characterFrequency = function(string) {
-  //create return arrau
-  var result = [];
-  var holder = {};
-  //could create an object to hold pairs
-  for ( var i = 0; i < string.length; i++ ) {
-    var char = string[i];
+let characterFrequency = (string) => {
+  let result = [];
+  let holder = {};
+  let counter = 0;
+
+  for ( let i = 0; i < string.length; i++ ) {
+    let char = string[i];
     if (!holder[char]) {
       holder[char] = 1
     } else {
       holder[char]++;
     }
   }
-  //Object.entries hold key value pairs in array
-  //can use sort for those values
-  //console.log(Object.entries(holder))
-  var charArrs = Object.entries(holder)
-  //iterate through string
-  //once finished with iteration put pairs in array for return
-  charArrs =  charArrs.sort((a, b)=>  b[1] - a[1])
-  return charArrs.sort( (a, b) => b[0] - a[0] && b[1] - a[1] )
+
+  let charArrs = Object.entries(holder)
+  charArrs =  charArrs.sort((a, b) => {
+    if( a[1] > b[1] ) {
+      return -1
+    } else if (a[1] < b[1]) {
+      return 1;
+    } else if (a[0] < b[0]) {
+      return -1;
+    } else if (a[1] > b[1]) {
+      return 1;
+    }
+  })
+
+  return charArrs;
+
 };
 
-  //console.log( characterFrequency('mississippi') );
+
+  console.log( 'result: ', characterFrequency('mississippi') );
   // [
   //   ['i', 4],
   //   ['s', 4],
@@ -69,7 +78,7 @@ var characterFrequency = function(string) {
 
 //       :: Example2 ::
 
-// console.log( characterFrequency('miaaiaaippi') )
+console.log( 'result: ',characterFrequency('miaaiaaippi') )
 //   // [
 //   //   ['a', 4],
 //   //   ['i', 4],
@@ -79,10 +88,18 @@ var characterFrequency = function(string) {
 
 // //       :: Example3 ::
 
-console.log( characterFrequency('mmmaaaiiibbb') )
+console.log( 'result: ',characterFrequency('mmmaaaiiibbb') )
   // [
   //   ['a', 3],
   //   ['b', 3],
   //   ['i', 3],
   //   ['m', 3]
   // ]
+
+
+  // if (charArrs[num][0].localeCompare(char[0]) < 0) {
+  //   var hold = char;
+  //   char = charArrs[num];
+  //   console.log('during if', charArrs)
+  //   charArrs[num] = hold;
+  // }

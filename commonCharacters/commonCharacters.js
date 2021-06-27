@@ -20,7 +20,7 @@ var objCreator = (str) => {
 }
 
 
-var commonCharacters = function(string1, string2) {
+var commonCharacters = (string1, string2) => {
   let args = [...arguments ]
   let objArr =  [];
 
