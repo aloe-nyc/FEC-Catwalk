@@ -8,10 +8,10 @@
 //first atrocious implementation
 
 var firstNonRepeatedCharacter = function(string) {
-  //turn string into an array
+
   var stringCopy = string.split('');
   var stringCopyCopy = string.split('');
-  //make a copy
+
   for ( var i = 0; i < stringCopy.length; i++ ) {
     var char = stringCopy[i]
     var removed = stringCopyCopy.splice(i, 1);
@@ -28,7 +28,8 @@ var firstNonRepeatedCharacter = function(string) {
 console.log(firstNonRepeatedCharacter('AACBDB') ); //C
 console.log(firstNonRepeatedCharacter('ABA')) //'B'
 console.log(firstNonRepeatedCharacter('')) //''
-
+console.log(firstNonRepeatedCharacter('AASDFDS1')) //F
+console.log(firstNonRepeatedCharacter('AASD2FDS1'))//2
 
 //previously used an object to do this problem
 //would like to try figuring out a different solution
