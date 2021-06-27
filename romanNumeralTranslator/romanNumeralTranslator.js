@@ -28,6 +28,13 @@ var DIGIT_VALUES = {
 };
 
 var translateRomanNumeral = function(romanNumeral) {
-// TODO: Implement me!
-
+  return Math.abs( [...romanNumeral].reduce( (acc, symbol) => {
+    return acc < DIGIT_VALUES[symbol] ? acc -= DIGIT_VALUES[symbol] : acc += DIGIT_VALUES[symbol];
+  }, 0) ) || 0;
 };
+
+console.log(translateRomanNumeral("MMXX")) //2020
+console.log(translateRomanNumeral("XCVII")) //97
+console.log(translateRomanNumeral("LX")) //60
+console.log(translateRomanNumeral("ABAB")) // 0
+console.log(translateRomanNumeral(""))// 0

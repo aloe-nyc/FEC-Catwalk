@@ -14,10 +14,9 @@ var longest = (arr, word = '') => {
   return word;
 }
 var longestPalindrome = function (string) { //arrow func, default param
-  //something to add/subtract
-  //something to  hold longest string
   let longestStr = '';
   let odd = [], even = [];
+
   let compareLetters = (lesser, higher) => { //arrow func
     while (lesser >= 0 && higher < string.length && string[lesser] === string[higher]) {
       lesser--;
@@ -25,6 +24,7 @@ var longestPalindrome = function (string) { //arrow func, default param
     }
     return string.slice(lesser+1, higher)
   }
+
   for (let i = 0; i < string.length; i++) {
     odd.push( compareLetters(i-1, i+1) )
     even.push( compareLetters(i, i+1) )
