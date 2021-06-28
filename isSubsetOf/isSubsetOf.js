@@ -24,24 +24,21 @@
 Array.prototype.isSubsetOf = function (arr) {
   var storage = {};
   var iterable = this;
-  //console.log(iterable)
+
   for ( const item of this ) {
-    //console.log(item)
     if (!storage[item]) {
       storage[item] = 0;
     }
   }
-  //console.log(storage)
+
   for (var i = 0; i < arr.length; i++) {
     var el = arr[i];
-      if (el in storage) {
-        delete storage[el];
-      }
+    if (el in storage) {
+      delete storage[el];
+    }
   }
 
-  //console.log('curious', Object.values(storage))
   return Object.values(storage).length > 0 ? false : true;
-  // your code here
 };
 
 // var b = ['merge','reset','reset']
