@@ -37,5 +37,6 @@ var translateRomanNumeral = (romanNumeral) => {
 console.log(translateRomanNumeral("MMXX")) //2020
 console.log(translateRomanNumeral("XCVII")) //97
 console.log(translateRomanNumeral("LX")) //60
+console.log(translateRomanNumeral("XL"))   //40
 console.log(translateRomanNumeral("ABAB")) // null
 console.log(translateRomanNumeral(""))// null

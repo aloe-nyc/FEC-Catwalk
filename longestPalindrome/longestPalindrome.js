@@ -5,7 +5,7 @@
 * palindromes in the above string include "dad", "ete", " dad " (including
 * whitespace on each side of dad).
 */
-var longest = (arr, word = '') => {
+let longest = (arr, word = '') => {
   for (var i = 0; i < arr.length; i++) {
     if (word.length < arr[i].length) {
       word = arr[i]
@@ -13,23 +13,25 @@ var longest = (arr, word = '') => {
   }
   return word;
 }
-var longestPalindrome = function (string) { //arrow func, default param
+
+let compareLetters = (lesser, higher, str) => { //arrow func
+  while (lesser >= 0 && higher < str.length && str[lesser] === str[higher]) {
+    lesser--;
+    higher++;
+  }
+  return str.slice(lesser+1, higher)
+}
+
+let longestPalindrome = function (string) { //arrow func, default param
   let longestStr = '';
   let odd = [], even = [];
 
-  let compareLetters = (lesser, higher) => { //arrow func
-    while (lesser >= 0 && higher < string.length && string[lesser] === string[higher]) {
-      lesser--;
-      higher++;
-    }
-    return string.slice(lesser+1, higher)
+  for (let i = 0; i < string.length; i++) {
+    odd.push( compareLetters(i-1, i+1, string) )
+    even.push( compareLetters(i, i+1, string) )
   }
 
-  for (let i = 0; i < string.length; i++) {
-    odd.push( compareLetters(i-1, i+1) )
-    even.push( compareLetters(i, i+1) )
-  }
-  return longest(even, longest(odd) );
+  return longest( even, longest(odd) );
 };
 
 console.log(longestPalindrome("banana")) // "anana"
