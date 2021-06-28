@@ -27,14 +27,15 @@ var DIGIT_VALUES = {
   M: 1000
 };
 
-var translateRomanNumeral = function(romanNumeral) {
-  return Math.abs( [...romanNumeral].reduce( (acc, symbol) => {
-    return acc < DIGIT_VALUES[symbol] ? acc -= DIGIT_VALUES[symbol] : acc += DIGIT_VALUES[symbol];
-  }, 0) ) || 0;
+var translateRomanNumeral = (romanNumeral) => {
+  return [...romanNumeral].reduce( (acc, symbol) => {
+    var rn = DIGIT_VALUES[symbol]
+    return acc < rn ? Math.abs(acc -= rn) : acc += rn;
+  }, 0) || null;
 };
 
 console.log(translateRomanNumeral("MMXX")) //2020
 console.log(translateRomanNumeral("XCVII")) //97
 console.log(translateRomanNumeral("LX")) //60
-console.log(translateRomanNumeral("ABAB")) // 0
-console.log(translateRomanNumeral(""))// 0
+console.log(translateRomanNumeral("ABAB")) // null
+console.log(translateRomanNumeral(""))// null
