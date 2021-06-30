@@ -24,14 +24,16 @@ let largestProductOfThree = (array) => {
     }
     index++;
   }
+  console.log(product);
   return product;
 };
 
 console.log(largestProductOfThree([2, 1, 3, 7]) === 42)
 console.log(largestProductOfThree([2, 1, 2, 2, 2, 3, 7]) === 42)
 console.log(largestProductOfThree([2, 1, 3, -7]) === -42);
-console.log(largestProductOfThree([2, 1, 'a', 7]))
-
+console.log(largestProductOfThree([2, 1, 'a', 7] === null))
+console.log(largestProductOfThree([2, 13, 7, 3, 5, 11] === 1001)) //1001
+console.log(largestProductOfThree([2, 3, -11, 7, 5, -13] === 1001))//1001
 // while (secondDig < array.length - 2) {
 //   console.log(num, array[firstDig], array[secondDig])
 //   tempProd = num * array[firstDig] * array[secondDig];
