@@ -5,6 +5,9 @@
  */
 
 var primeTester = (n) =>{
+  if (n == 0 || n === 1) {
+    return false;
+  }
   for (let i = n - 1; i > 1; i--) {
     if (n % i === 0) {
       return false;
@@ -26,6 +29,8 @@ console.log(primeTester(25)) //false
 console.log(primeTester(8)) //false
 console.log(primeTester(81)) //false
 console.log(primeTester(720))//false
+console.log(primeTester(0)) //false
+console.log(primeTester(1)) //false
 console.log(primeTester(109))//true
 console.log(primeTester(11)) //true
 console.log(primeTester(17)) //true
