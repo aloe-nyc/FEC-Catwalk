@@ -5,7 +5,7 @@
  */
 
 var primeTester = (n) =>{
-  if (n == 0 || n === 1) {
+  if (typeof n !== 'number' || n < 1 || n % 1 !== 0) {
     return false;
   }
   for (let i = n - 1; i > 1; i--) {
