@@ -40,7 +40,36 @@ var phoneDigitsToLetters = {
   9: 'WXYZ'
 };
 
+/*
+Input  string of numbers
+Output - array of string
+Edge Cases - 0 & 1 dont have letters - left as numbers -
+Constraint - up to 4 numbers
+*/
 
-var telephoneWords = function(digitString) {
-  // TODO: return every combination that can be spelled on a phone with these digits
+// TODO: return every combination that can be spelled on a phone with these digits
+let telephoneWords = (digitString) => {
+  if (digitString.length > 4) return 'invalid length';
+
+  let digitArr  = [...digitString]
+  let sets = []
+  for (let i = 0; i < digitArr.length; i++) {
+    let num = Number(digitArr[i])
+    sets.push(phoneDigitsToLetters[num])
+  }
+  let combinations = [];
+  //console.log(sets)
+
+  let combo = '';
+  //while combo length is less than 4, iterate thru array
+  for (var i = 0; sets.length; i++) {
+
+  }
+  return combinations
 };
+
+console.log( telephoneWords('2745') );
+console.log( telephoneWords('2745') );
+console.log( telephoneWords('1745') );
+console.log( telephoneWords('2045') );
+console.log( telephoneWords('274543') );

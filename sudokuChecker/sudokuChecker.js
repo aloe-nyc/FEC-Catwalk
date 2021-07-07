@@ -25,6 +25,7 @@ var checkForRepeats =(numStr) => {
   for (var num in storage) {
     if (storage[num] > 0) return false;
   }
+  return true
 }
 // Input - string
 // Output - boolean - as a string -- 'solved' if the board is valid, 'invalid' if it isn't
@@ -33,7 +34,7 @@ var checkForRepeats =(numStr) => {
 
 function sudokuChecker(board) {
   // Your code here.
-  var result;
+  var result = 'solved';
   //splitting string at each \n
   var sudokuSet = board.split('\n');
   //console.log(sudokuSet)
@@ -44,7 +45,7 @@ function sudokuChecker(board) {
     result = checkForRepeats(sudokuSet[i]);
     if (result === false) return 'invalid'
   }
-
+  //console.log('after sudoku set', result)
   //checking columns
   let col = 0;
   while (col < length) {
@@ -54,9 +55,10 @@ function sudokuChecker(board) {
     }
     //console.log(column)
     result = checkForRepeats(column)
-    if (result === false) return 'invalid'
+    if (result === 'false') return 'invalid'
     col++
   }
+  //console.log('after column', result)
 
   //checking 3 X 3s
   let grids =[];
@@ -64,10 +66,19 @@ function sudokuChecker(board) {
      let grid = ''
      for (var k = 0; k < sudokuSet.length; k++) {
        grid += sudokuSet[k].slice(i, j+1)
+       if (grid.length === length) {
+         grids.push(grid);
+         grid='';
+       }
      }
-    grids.push(grid)
    }
-   console.log(grids)
+  grids.forEach( grid => {
+     return checkForRepeats(grid);
+   })
+  //console.log('after forEach', result)
+  return result === true ? 'solved' : 'invalid';
 }
 
 console.log(sudokuChecker("735814296\n896275314\n214963857\n589427163\n362189745\n471356982\n923541678\n648792531\n157638429")) //valid
+
+console.log(sudokuChecker("735814296\n896275313\n214963857\n589427163\n362189745\n471356982\n923541678\n648792531\n157638429")) //896275314 changed to n896275313, invalid
