@@ -33,6 +33,28 @@
 // Feel free to add helper functions if needed.
 
 
-var bubbleSort = function(array) {
-  // Your code here.
+var bubbleSort = (array) => {
+  let swaps = 0;
+  let numAhead = 1;
+  let sorter = (arr) => {
+    for (var i = 0; i < arr.length -2; i++) {
+      if (arr[i] > arr[numAhead]) {
+        swaps+=1;
+        let holder = array[numAhead];
+        arr[numAhead] = arr[i];
+        arr[i] = holder;
+      }
+      numAhead+=1;
+    }
+    if (swaps === 0 ) {
+      return arr;
+    } else {
+      swaps = 0;
+    }
+  }
+  sorter(array)
+
+  return array;
 };
+
+console.log(bubbleSort([5, 1, 4, 2, 8])) // 1 2 4 5 8
