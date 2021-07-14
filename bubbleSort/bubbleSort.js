@@ -46,6 +46,7 @@ var bubbleSort = (array) => {
       }
       numAhead+=1;
     }
+
     if (swaps === 0 ) {
       return arr;
     } else {

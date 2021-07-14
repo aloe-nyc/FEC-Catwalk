@@ -10,6 +10,35 @@
  *    Combines the two arrays and the pivot into a sorted array.
  */
 
+//helper function to get pivot
 
-var quicksort = function(array) {
+let findPivot = (array) => {
+  let midpoint = Math.floor( (array.length - 1) / 2)
+  return midpoint;
+}
+
+let sort = (arr) => {
+
+}
+
+let quicksort = (array) => {
+  //find pivot
+
+  let pivot = findPivot(array)
+  let midpoint = array.splice(pivot, 1)
+
+  let lower = [];
+  let higher = [];
+
+  for (let i = 0; i < array.length; i++) {
+    midpoint > array[i] ? lower.push(array[i]) : higher.push(array[i]);
+  } //partitions array dependant on if they are smaller or larger than pivot
+  console.log(lower, higher)
+   let sortedLows = sort(lower)
+   let sortedHighs = sort(higher)
 };
+
+
+console.log(quicksort([3, 7, 2, 5, 8, 6, 1]));// [1,2,3,5,6,7,8]
+//midpoint is 5
+//seperate arrays are [3, 2, 1] && [7, 8, 6]
