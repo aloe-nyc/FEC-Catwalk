@@ -97,6 +97,27 @@
 
 
 
-var mergeSort = function(array) {
+var mergeSort = (array) =>{
   // Your code here.
-};
+  let midpoint = Math.floor( (array.length -1) / 2);
+  let front = array.slice(0, midpoint);
+  let back = array.slice(midpoint);
+
+  let sort = (arr1, arr2) => {
+    let sorted = [];
+    let i = 0;
+    while(arr1.length && arr2.length) {
+      if (arr1[i] < arr2[i+1]) {
+        let less = arr1.slice(i)
+        let more = arr2.slice(i+1)
+        sorted.push(less, more)
+      }
+      i++;
+      console.log(sorted);
+    }
+    return sorted;
+  }
+  return sort(front, back);
+}
+
+console.log(mergeSort([4, 7, 4, 3, 9, 1, 2])) //[1, 2, 3, 4, 4, 7, 9]
