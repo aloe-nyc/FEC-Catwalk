@@ -14,7 +14,21 @@
     returns [1, 2, 3, 6, 9, 8, 7, 4, 5]
  */
 
-var spiralTraversal = function(matrix) {
-
+let spiralTraversal = (matrix) => {
   // TODO: Implement me!
+  let length = matrix[0].length;
+  let totalItems = length * matrix.length;
+
+  let start = 0;
+  let straightSpiral = [];
+
+
+
+  return straightSpiral;
 };
+
+console.log(spiralTraversal([
+  [1,2,3],
+  [4,5,6],
+  [7,8,9]
+])) //[1, 2, 3, 6, 9, 8, 7, 4, 5]
