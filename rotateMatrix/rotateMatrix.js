@@ -43,7 +43,31 @@
  *  - Make your function accept a parameter for the direction of rotation (1 = clockwise, -1 = counterclockwise)
  */
 
-var rotateMatrix = function(matrix
-) {
+var rotateMatrix = (matrix) => {
+  let rotatedMat = []
   // Your code here.
+  for (let i = 0; i < matrix.length; i++) {
+    let placeholder = [];
+    for (let j = matrix[i].length - 1; j >= 0; j--) {
+      placeholder.push(matrix[j][i])
+    }
+    rotatedMat.push(placeholder);
+  }
+  return rotatedMat;
 };
+
+var matrix = [
+  [1,2,3,4],
+  [5,6,7,8],
+  [9,'A','B','C'],
+  ['D','E','F','G']
+]
+
+ var rotatedMatrix = rotateMatrix(matrix); // Rotate 90 degrees clockwise
+ console.log(rotatedMatrix);
+/* // rotatedMatrix is:
+* [ ['D',9,5,1],
+*  ['E','A',6,2],
+*  ['F','B',7,3],
+*  ['G','C',8,4]
+* ] */
