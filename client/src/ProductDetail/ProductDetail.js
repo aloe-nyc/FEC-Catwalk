@@ -11,7 +11,7 @@ class ProductDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productID: this.props.data.productID,
+      productID: 11107,
       selectedColor: 'silver',
       selectedBorder: 'double ',
       product: null,

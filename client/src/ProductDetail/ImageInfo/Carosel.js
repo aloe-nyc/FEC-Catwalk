@@ -9,6 +9,7 @@ import CaroselImg from './CaroselImg';
 import StyleSelector from '../StylesInfo/StyleSelector';
 
 let Carosel = (props) => {
+
   const [currentImg, setImg] = useState(0);
   const [thumbAmt, limitThumbs] = useState(true);
 
@@ -37,7 +38,7 @@ let Carosel = (props) => {
   const setCoords = (x, y) => {
     console.log(x, y);
   };
-
+  console.log('in carosel ', props, 'idx ', currentImg);
   return (
     <div className="styleCarosel">
       <div className="imagesAndArrows">
@@ -61,6 +62,7 @@ let Carosel = (props) => {
             setThumbs={setAmtThumbs}
             expandThumbs={thumbAmt}
           />
+          { console.log('b4 carosel img call ', props.allImages[currentImg].url) }
           <CaroselImg image={props.allImages[currentImg].url} />
         </div>
 
