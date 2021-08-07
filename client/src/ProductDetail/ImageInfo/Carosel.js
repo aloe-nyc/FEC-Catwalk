@@ -11,7 +11,7 @@ import StyleSelector from '../StylesInfo/StyleSelector';
 let Carosel = (props) => {
 
   const [currentImg, setImg] = useState(0);
-  const [thumbAmt, limitThumbs] = useState(true);
+  const [thumbAmt, changeToTrue] = useState(true);
 
   let length = props.allImages.length - 1;
 
@@ -28,7 +28,7 @@ let Carosel = (props) => {
   };
 
   const setAmtThumbs = () => {
-    limitThumbs(!thumbAmt);
+    changeToTrue(!thumbAmt);
   };
 
   const setcurrentImg = (index) => {

@@ -35,6 +35,10 @@
   justify-content: flex-start;
 }
 
+.allselectedsty > div {
+  margin: 6px;
+}
+
 .imgAndThumbs {
   position: relative;
   display: flex;
@@ -103,13 +107,6 @@
 
 .checkMarkpd {
   position: absolute;
-}
-
-.allselectedsty {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  max-width: 300px;
 }
 
 .productInfo {
