@@ -1,6 +1,7 @@
+/* eslint-disable func-style */
 import React from 'react';
 import axios from 'axios';
-import config from '../../../config.js';
+import config from '../../../config';
 import Cache from 'js-cache';
 import $ from 'jquery';
 
@@ -84,7 +85,7 @@ axios.interceptors.response.use(response => {
   return response;
 }, error => Promise.reject(error));
 
-let loadProductStyle = (productID) => {
+function loadProductStyle(productID) {
   var allConfig = {
     method: 'get',
     url: `http://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${productID}/styles`,
@@ -113,9 +114,9 @@ let loadProductStyle = (productID) => {
       return <div> Something's Wrong</div>;
       console.log('err');
     });
-};
+}
 
-let getProductData = (productID) => {
+function getProductData(productID) {
   axios.get(
     `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${productID}/`,
     {headers: {Authorization: config.TOKEN}})
@@ -131,9 +132,9 @@ let getProductData = (productID) => {
     .catch((err)=>{
       console.log(err);
     });
-};
+}
 
-let getProductImage = (productID) => {
+function getProductImage(productID) {
   axios.get(
     `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${productID}/styles`,
     {headers: {Authorization: config.TOKEN}})
@@ -155,9 +156,9 @@ let getProductImage = (productID) => {
     .catch((err)=>{
       console.log(err);
     });
-};
+}
 
-let getProductRating = (productID) => {
+function getProductRating(productID) {
   axios.get(
     `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews/meta/?product_id=${productID}`,
     {headers: {Authorization: config.TOKEN}})
@@ -179,9 +180,10 @@ let getProductRating = (productID) => {
     .catch((err)=>{
       console.log(err);
     });
-};
+}
 
-let getRelatedProducts = (productID) => {
+function getRelatedProducts(productID) {
+  console.log('BISWNGSBEAG', this);
   axios.get(
     `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/products/${productID}/related`,
     {headers: {Authorization: config.TOKEN}})
@@ -192,9 +194,9 @@ let getRelatedProducts = (productID) => {
       console.log(err);
     });
   this.setState({relatedListEndIdx: 3});
-};
+}
 
-let getAllReviews = (productID) => {
+function getAllReviews (productID) {
   axios({
     method: 'get',
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews/?product_id=${productID}`,
@@ -212,9 +214,9 @@ let getAllReviews = (productID) => {
       console.log(err);
     });
 
-};
+}
 
-let getReviews = (productID, count, sort) =>{
+function getReviews (productID, count, sort) {
   axios({
     method: 'get',
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews/?product_id=${productID}`,
@@ -235,9 +237,9 @@ let getReviews = (productID, count, sort) =>{
       console.log(err);
     });
 
-};
+}
 
-let getMeta = (productID) => {
+function getMeta (productID) {
   return axios({
     method: 'get',
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hrnyc/reviews/meta?product_id=${productID}`,
@@ -260,7 +262,7 @@ let getMeta = (productID) => {
     .catch((err)=>{
       console.log(err);
     });
-};
+}
 
 export {
   loadProductStyle,
