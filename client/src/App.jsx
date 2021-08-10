@@ -26,6 +26,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log('in app ', this.state);
     return (
       <div className="mainPg">
         <Banner />

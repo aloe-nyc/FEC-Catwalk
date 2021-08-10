@@ -12,7 +12,7 @@ class ProductDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productID: this.props.data.productID,
+      productID: 11107,
       selectedColor: 'silver',
       selectedBorder: 'double ',
       product: null,
@@ -39,7 +39,7 @@ class ProductDetail extends React.Component {
 
   componentDidUpdate(prevState) {
     if (prevState.data.productID !== this.props.data.productID) {
-      loadProductStyle();
+      this.loadProductStyle();
       this.changeProductID(this.props.data.productID);
     }
   }
@@ -82,7 +82,7 @@ class ProductDetail extends React.Component {
     if (this.state.selectedStyle === null || this.state.product === null) {
       return <div className="productDetail">Loading...</div>;
     }
-    console.log('function importing properly ', loadProductStyle);
+
     return (
       <div className="productDetails">
         <Carosel

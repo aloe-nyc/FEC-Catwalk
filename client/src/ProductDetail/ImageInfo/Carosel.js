@@ -38,7 +38,7 @@ let Carosel = (props) => {
   const setCoords = (x, y) => {
     console.log(x, y);
   };
-  console.log('in carosel ', props, 'idx ', currentImg);
+  // console.log('in carosel ', props, 'idx ', currentImg);
   return (
     <div className="styleCarosel">
       <div className="imagesAndArrows">
