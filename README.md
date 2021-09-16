@@ -1,10 +1,9 @@
-# Project Catwalk
-Project Catwalk is a front-end e-commerce store front
+<h1 align="center" style="font-size: 2.7rem;">Aloe</h1>
 
-## Developers
-- **Angie Rodriguez** - Product Overview
-- **Jason Chen** - Related Products
-- **Justin Hurst** - Ratings and Reviews
+<h2 align="center" style="font-size: 1.5rem;">An e-commerce retail store front<br><br>
+
+![](gifs_and_images/Products.png)
+
 
 
 ## Table of Contents
@@ -22,12 +21,13 @@ Project Catwalk is a front-end e-commerce store front
 - Node.js
 - Express
 - React
-- SASS
 
 
 
 ## Product Overview
 This widget will show relevant information for a single product in the catalogue. Page should be uniform - every product rendered in same fashion.
+
+![](gifs_and_images/Products.png)
 
 **Features**
 1. Product Information: General information about the product , including Star rating (based on reviews)including a hyperlink to direct viewer to rating & review widget.
@@ -51,6 +51,9 @@ This widget will show relevant information for a single product in the catalogue
 The Related Items & Comparison module will display two sets of related products.  The first set will be a list of products, determined internally, that are related to the product currently being viewed.  The second set will be a list, custom created by the user, of products which the user has grouped with the current product into an ‘outfit’.
 This widget interacts with the app state the most out of all the components- it changes the whole page’s product, pulls data from cookies, makes a heck of a lot of API requests.
 
+![](gifs_and_images/Related.png)
+
+
 **Features**
 1. Custom ‘carousel’ list behavior
   * Each list shows 3 items at once, if there are more items they ‘overflow’ off the viewport and can be accessed by clicking directional arrows to bring them into view.
@@ -68,7 +71,7 @@ This widget interacts with the app state the most out of all the components- it 
 
 
 ## Ratings and Reviews
-This is the ratings and reviews component of an e-commerce storefront. Customers can view prior reviews and also post their own. Built with React, Node.js, CSS, and Express.
+This is the ratings and reviews component of an e-commerce storefront. Customers can view prior reviews and also post their own.
 
 ![](gifs_and_images/Reviews.png)
 
@@ -96,6 +99,8 @@ This is the ratings and reviews component of an e-commerce storefront. Customers
 
 ## Data Integration and Component Organization
 
+![](gifs_and_images/Frontend.png)
+
   * API and Data Retrieval: the Related Products widget is the most 'expensive' in terms of interactions with an external API. However, all 3 components make API calls, which led to some performance challenges. We attempted to solve the issue with caching.
   * State management: We did not use a state manager. Instead, the Related Products widget sets a product ID on our top level App component, which then 'drills' down the selected product ID as a property
 
@@ -103,7 +108,7 @@ This is the ratings and reviews component of an e-commerce storefront. Customers
 ## Build Project
 Follow these steps to run the project:
 - Clone down the repo in the terminal
-  * `git clone https://github.com/TN423/Catwalk.git`
+  * `git clone https://github.com/TN423/Aloe.git`
 - Add personal github token
   * Go to the exampleConfig.js file and rename to config.js
   * Replace `UPDATE ME` with github key into config.js
@@ -111,3 +116,15 @@ Follow these steps to run the project:
 - Run webpack - `npm run build-dev`
 - Run server - `npm run server-dev`
 - Run Sass styling - `npm run sass-dev`
+
+
+## Contributors
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/swizzlestix09"><img src="https://avatars.githubusercontent.com/u/34196367?v=4" width="100px;" alt=""/><br /><sub><b>Angely Rodriguez</b></sub></a<br /></td>
+    <td align="center"><a href="https://github.com/7u1ian"><img src="https://avatars.githubusercontent.com/u/42424216?v=4" width="100px;" alt=""/><br /><sub><b>Jason Chen</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/TN423"><img src="https://avatars.githubusercontent.com/u/80915187?v=4" width="100px;" alt=""/><br /><sub><b>Justin Hurst</b></sub></a><br /></td>
+
+  </tr>
+</table>
